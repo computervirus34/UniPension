@@ -1,0 +1,192 @@
+﻿@model UniPension.Models.PensionerBasicInfo
+
+@{
+    ViewBag.Title = "PensionDetailsInfo";
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <h4>Pensioner Basic Info</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        @Html.HiddenFor(model => model.CreditAccDetails.AccNo, new { htmlAttributes = new { @class = "form-control form-control-sm", @readonly = "readonly" } })
+        @Html.HiddenFor(model => model.CreditAccDetails.Payment_Ref_No, new { htmlAttributes = new { @class = "form-control form-control-sm", @readonly = "readonly" } })
+        <div class="row">
+            <div class="col-md-3 col-sm-3">
+                @Html.LabelFor(model => model.NID, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.NID, new { htmlAttributes = new { @class = "form-control form-control-sm", @readonly="readonly"} })
+                @Html.ValidationMessageFor(model => model.NID, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-3 col-sm-3">
+                @Html.LabelFor(model => model.PID, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.PID, new { htmlAttributes = new { @class = "form-control form-control-sm", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.PID, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-3 col-sm-3">
+                @Html.LabelFor(model => model.PhoneNo, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.PhoneNo, new { htmlAttributes = new { @class = "form-control form-control-sm", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.PhoneNo, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-3 col-sm-3">
+                @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control form-control-sm", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3 col-sm-3">
+                @Html.LabelFor(model => model.Pension_holder_Name, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.Pension_holder_Name, new { htmlAttributes = new { @class = "form-control form-control-sm", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.Pension_holder_Name, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-3 col-sm-3">
+                @Html.LabelFor(model => model.Install_Amount, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.Install_Amount, new { htmlAttributes = new { @class = "form-control form-control-sm", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.Install_Amount, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-3 col-sm-3">
+                @Html.LabelFor(model => model.Pay_Interval_Type, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.Pay_Interval_Type, new { htmlAttributes = new { @class = "form-control form-control-sm", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.Pay_Interval_Type, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-3 col-sm-3">
+                @Html.LabelFor(model => model.Payable_Per_Installment, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.Payable_Per_Installment, new { htmlAttributes = new { @class = "form-control form-control-sm", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.Payable_Per_Installment, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 col-sm-3">
+                @Html.LabelFor(model => model.Scheme_name, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.Scheme_name, new { htmlAttributes = new { @class = "form-control form-control-sm", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.Scheme_name, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-3 col-sm-3">
+                @Html.LabelFor(model => model.Total_Due_Install_Count, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.Total_Due_Install_Count, new { htmlAttributes = new { @class = "form-control form-control-sm", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.Total_Due_Install_Count, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-3 col-sm-3">
+                @Html.LabelFor(model => model.Total_Due_Install_Amount, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.Total_Due_Install_Amount, new { htmlAttributes = new { @class = "form-control form-control-sm", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.Total_Due_Install_Amount, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-3 col-sm-3">
+                @Html.LabelFor(model => model.Total_Fine_Amount, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.Total_Fine_Amount, new { htmlAttributes = new { @class = "form-control form-control-sm", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.Total_Fine_Amount, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 col-sm-3">
+                @Html.LabelFor(model => model.Grand_Total_Due_Amount, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.Grand_Total_Due_Amount, new { htmlAttributes = new { @class = "form-control form-control-sm", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.Grand_Total_Due_Amount, "", new { @class = "text-danger" })
+
+            </div>
+            <div class="col-md-3 col-sm-3">
+                @Html.LabelFor(model => model.CommissionAmount, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.CommissionAmount, new { htmlAttributes = new { @class = "form-control form-control-sm" } })
+                @Html.ValidationMessageFor(model => model.CommissionAmount, "", new { @class = "text-danger" })
+
+            </div>
+            <div class="col-md-3 col-sm-3">
+                @Html.LabelFor(model => model.VATAmount, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.VATAmount, new { htmlAttributes = new { @class = "form-control form-control-sm" } })
+                @Html.ValidationMessageFor(model => model.VATAmount, "", new { @class = "text-danger" })
+
+            </div>
+            <div class="col-md-3 col-sm-3">
+                @Html.LabelFor(model => model.PayingAmount, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.PayingAmount, new { htmlAttributes = new { @class = "form-control form-control-sm", @placeholder="Please confirm total amount", @required="true" } })
+                @Html.ValidationMessageFor(model => model.PayingAmount, "", new { @class = "text-danger" })
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 col-sm-3">
+                @Html.LabelFor(model => model.PayingInstallCount, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.PayingInstallCount, new { htmlAttributes = new { @class = "form-control form-control-sm" } })
+                @Html.ValidationMessageFor(model => model.PayingInstallCount, "", new { @class = "text-danger" })
+
+            </div>
+        </div>
+        <h4>Pensioner Dues Info</h4>
+        <div class="row table-responsive">
+            <table class="table">
+                <tr>
+                    <th>
+                        Install_No
+                    </th>
+                    <th>
+                        Due_Amount
+                    </th>
+                    <th>
+                        Fine_Amount
+                    </th>
+                    <th>
+                        Total_Due
+                    </th>
+                    <th>
+                        Payment_Currency
+                    </th>
+                    <th>
+                        Due_Date
+                    </th>
+                </tr>
+                @if (Model.Due_Installments != null)
+                {
+                    foreach (var item in Model.Due_Installments)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Install_No)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Due_Amount)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Fine_Amount)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Total_Due)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Payment_Currency)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Due_Date)
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="6">
+                            No dues..
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+        <hr/>
+        <div class="row">
+            <div class="col-md-offset-5 col-md-6">
+                <input type="submit" value="Confirm Payment" class="btn btn-primary" />
+            </div>
+        </div>
+}

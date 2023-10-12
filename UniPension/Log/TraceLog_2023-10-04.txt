@@ -1,0 +1,30 @@
+2023-10-04 14:39:09,752 [30] DEBUG UniPension.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2023-10-04 14:39:11,617 [30] DEBUG UniPension.Controllers.LoginController - Login successful! for user ID:admin from IP:127.0.0.1
+2023-10-04 14:39:14,819 [23] DEBUG UniPension.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2023-10-04 14:39:14,823 [23] DEBUG UniPension.Controllers.LoginController - Login successful! for user ID:admin from IP:127.0.0.1
+2023-10-04 14:39:46,340 [36] DEBUG UniPension.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2023-10-04 14:39:46,343 [36] DEBUG UniPension.Controllers.LoginController - Login successful! for user ID:admin from IP:127.0.0.1
+2023-10-04 14:41:37,331 [30] DEBUG UniPension.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2023-10-04 14:41:39,075 [30] DEBUG UniPension.Controllers.LoginController - Login successful! for user ID:admin from IP:127.0.0.1
+2023-10-04 14:45:38,658 [5] DEBUG UniPension.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2023-10-04 14:45:39,658 [5] DEBUG UniPension.Controllers.LoginController - Login successful! for user ID:admin from IP:127.0.0.1
+2023-10-04 16:31:13,314 [7] DEBUG UniPension.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2023-10-04 16:31:14,100 [7] DEBUG UniPension.Controllers.LoginController - Login successful! for user ID:admin from IP:127.0.0.1
+2023-10-04 16:34:35,868 [7] DEBUG UniPension.Repositories.PensionePaymentRepository - Method: GET, RequestUri: 'http://tdmtraining.finance.gov.bd/upenservices/api/token', Version: 1.1, Content: System.Net.Http.FormUrlEncodedContent, Headers:
+{
+  Content-Type: application/x-www-form-urlencoded
+}
+2023-10-04 16:36:00,039 [7] ERROR UniPension.Controllers.PensionPaymnetController - System.Net.WebException: The remote server returned an error: (400) Bad Request.
+   at System.Net.HttpWebRequest.GetResponse()
+   at UniPension.Repositories.PensionePaymentRepository.GetToken() in H:\Ahsan\ASPAPP\UniPension\UniPension\Repositories\PensionPaymentRepository.cs:line 126
+   at UniPension.Repositories.PensionePaymentRepository.RestClientWithAuth(String& statusCode, String& message) in H:\Ahsan\ASPAPP\UniPension\UniPension\Repositories\PensionPaymentRepository.cs:line 79
+   at UniPension.Controllers.PensionPaymnetController.Index(String searchString) in H:\Ahsan\ASPAPP\UniPension\UniPension\Controllers\PensionPaymnetController.cs:line 63
+2023-10-04 16:54:48,667 [7] DEBUG UniPension.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2023-10-04 16:54:49,049 [7] DEBUG UniPension.Controllers.LoginController - Login successful! for user ID:admin from IP:127.0.0.1
+2023-10-04 16:56:29,416 [8] ERROR UniPension.Controllers.PensionPaymnetController - System.Net.ProtocolViolationException: Cannot send a content-body with this verb-type.
+   at System.Net.HttpWebRequest.CheckProtocol(Boolean onRequestStream)
+   at System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   at System.Net.HttpWebRequest.GetRequestStream()
+   at UniPension.Repositories.PensionePaymentRepository.GetToken() in H:\Ahsan\ASPAPP\UniPension\UniPension\Repositories\PensionPaymentRepository.cs:line 168
+   at UniPension.Repositories.PensionePaymentRepository.RestClientWithAuth(String& statusCode, String& message) in H:\Ahsan\ASPAPP\UniPension\UniPension\Repositories\PensionPaymentRepository.cs:line 79
+   at UniPension.Controllers.PensionPaymnetController.Index(String searchString) in H:\Ahsan\ASPAPP\UniPension\UniPension\Controllers\PensionPaymnetController.cs:line 63

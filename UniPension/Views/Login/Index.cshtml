@@ -1,0 +1,52 @@
+﻿@model UniPension.Models.LoginModels
+@{
+    ViewBag.Title = "Index";
+}
+
+<br />
+<br />
+<div class="row">
+    <div class="col-md-6" style="float:left;">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <div style="padding-left:100px; padding-top:20px;padding-bottom:20px;">
+                    <h4>Enter your User ID and Password to continue login</h4>
+                </div>
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.UserId, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.UserId, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.UserId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Login" class="btn btn-default btn-primary" />
+                    </div>
+                </div>
+            </div>
+            <h4 style="color:red;">@TempData["retMsg"]</h4>
+        }
+    </div>
+    <div class="col-md-6" style="float:right;">
+        <b>Universal Pension Payment Collection System (Uni-Pension). BKB.</b><br />
+        @*<img style="width:200px;height:100px;" src="~/Images/Desco.png" alt="Desco Logo" />
+        <img style="width:200px;height:100px;" src="~/Images/BREB Logo.png" alt="BREB Logo" />*@
+    </div>
+</div>
+
+<br />
+<br />
+<br />

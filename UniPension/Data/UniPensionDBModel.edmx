@@ -1,0 +1,577 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="UniPensionDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AppRole">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="isActive" Type="varchar" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AppUser">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userId" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="userPass" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="200" />
+          <Property Name="CellNo" Type="nvarchar" MaxLength="200" />
+          <Property Name="branchId" Type="int" Nullable="false" />
+          <Property Name="isActive" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="firstLogin" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="userType" Type="nvarchar" MaxLength="5" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="createdby" Type="datetime" />
+          <Property Name="createdon" Type="datetime" Nullable="false" />
+          <Property Name="updatedby" Type="datetime" />
+          <Property Name="updatedon" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Branch">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="branch_code" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="branch_name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="region" Type="varchar" MaxLength="50" />
+          <Property Name="division" Type="varchar" MaxLength="50" />
+          <Property Name="BBCode" Type="varchar" MaxLength="4" />
+          <Property Name="routingNo" Type="varchar" MaxLength="50" />
+          <Property Name="Address" Type="varchar" MaxLength="255" />
+          <Property Name="emailAddress" Type="varchar" MaxLength="255" />
+          <Property Name="PhoneNo" Type="varchar" MaxLength="20" />
+          <Property Name="thana" Type="varchar" MaxLength="255" />
+          <Property Name="City" Type="varchar" MaxLength="100" />
+          <Property Name="Status" Type="varchar" MaxLength="5" />
+          <Property Name="ISO" Type="varchar" MaxLength="10" />
+          <Property Name="ZIP" Type="varchar" MaxLength="10" />
+          <Property Name="OfficeType" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="CBSTransactionsLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PaymentRefNo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TxnType" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="RequestJson" Type="varchar" MaxLength="1000" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="MainMenu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="isActive" Type="varchar" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PensionPaymentRequest">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PensionerID" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="PensionerName" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="PhoneNo" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="255" />
+          <Property Name="PayIntervalType" Type="varchar" MaxLength="200" />
+          <Property Name="PensionerNid" Type="varchar" MaxLength="20" />
+          <Property Name="TransactionId" Type="varchar" MaxLength="50" />
+          <Property Name="PayingInstallCount" Type="int" />
+          <Property Name="PayingAmount" Type="numeric" Precision="12" Scale="2" />
+          <Property Name="CommissionAmount" Type="numeric" Precision="12" Scale="2" />
+          <Property Name="VATAmount" Type="numeric" Precision="12" Scale="2" />
+          <Property Name="PayMode" Type="varchar" MaxLength="100" />
+          <Property Name="CreditAccount" Type="varchar" MaxLength="30" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="100" />
+          <Property Name="ApprovedOn" Type="datetime" />
+          <Property Name="ApprovedBy" Type="varchar" MaxLength="200" />
+          <Property Name="UpdatedOn" Type="datetime" />
+          <Property Name="UpdatedBy" Type="varchar" MaxLength="200" />
+          <Property Name="NextDueDate" Type="varchar" MaxLength="100" />
+          <Property Name="IsSuccess" Type="varchar" MaxLength="1" />
+          <Property Name="TransactionDateTime" Type="datetime" />
+          <Property Name="BranchCode" Type="varchar" MaxLength="10" />
+          <Property Name="PaymentRefNo" Type="varchar" MaxLength="50" />
+          <Property Name="InstallPaidCount" Type="int" />
+          <Property Name="InstallPaidAmount" Type="numeric" Precision="12" Scale="2" />
+          <Property Name="IsCbsDeposited" Type="varchar" MaxLength="1" />
+          <Property Name="CBSBatchNo" Type="varchar" MaxLength="50" />
+          <Property Name="CBSTraceNo" Type="varchar" MaxLength="30" />
+          <Property Name="CBSDepositDate" Type="datetime" />
+          <Property Name="CallBackSuccess" Type="varchar" MaxLength="1" />
+          <Property Name="LastCallBackTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="RoleMenuMapping">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="appRoleID" Type="int" Nullable="false" />
+          <Property Name="subMenuID" Type="int" Nullable="false" />
+          <Property Name="isActive" Type="varchar" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SubMenu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="mainMenuID" Type="int" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="actionName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="controllerName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="isActive" Type="varchar" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <Association Name="fk_RoleMenuMapping_Role">
+          <End Role="AppRole" Type="Self.AppRole" Multiplicity="1" />
+          <End Role="RoleMenuMapping" Type="Self.RoleMenuMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AppRole">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="RoleMenuMapping">
+              <PropertyRef Name="appRoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_RoleMenuMapping_SubMenu">
+          <End Role="SubMenu" Type="Self.SubMenu" Multiplicity="1" />
+          <End Role="RoleMenuMapping" Type="Self.RoleMenuMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubMenu">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="RoleMenuMapping">
+              <PropertyRef Name="subMenuID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_SubMenu_mainMenu">
+          <End Role="MainMenu" Type="Self.MainMenu" Multiplicity="1" />
+          <End Role="SubMenu" Type="Self.SubMenu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MainMenu">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="SubMenu">
+              <PropertyRef Name="mainMenuID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_user_branch">
+          <End Role="Branch" Type="Self.Branch" Multiplicity="1" />
+          <End Role="AppUser" Type="Self.AppUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Branch">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="AppUser">
+              <PropertyRef Name="branchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="UniPensionDBModelStoreContainer">
+          <EntitySet Name="AppRole" EntityType="Self.AppRole" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AppUser" EntityType="Self.AppUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Branch" EntityType="Self.Branch" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CBSTransactionsLog" EntityType="Self.CBSTransactionsLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MainMenu" EntityType="Self.MainMenu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PensionPaymentRequest" EntityType="Self.PensionPaymentRequest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RoleMenuMapping" EntityType="Self.RoleMenuMapping" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SubMenu" EntityType="Self.SubMenu" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="fk_RoleMenuMapping_Role" Association="Self.fk_RoleMenuMapping_Role">
+            <End Role="AppRole" EntitySet="AppRole" />
+            <End Role="RoleMenuMapping" EntitySet="RoleMenuMapping" />
+          </AssociationSet>
+          <AssociationSet Name="fk_RoleMenuMapping_SubMenu" Association="Self.fk_RoleMenuMapping_SubMenu">
+            <End Role="SubMenu" EntitySet="SubMenu" />
+            <End Role="RoleMenuMapping" EntitySet="RoleMenuMapping" />
+          </AssociationSet>
+          <AssociationSet Name="fk_SubMenu_mainMenu" Association="Self.fk_SubMenu_mainMenu">
+            <End Role="MainMenu" EntitySet="MainMenu" />
+            <End Role="SubMenu" EntitySet="SubMenu" />
+          </AssociationSet>
+          <AssociationSet Name="fk_user_branch" Association="Self.fk_user_branch">
+            <End Role="Branch" EntitySet="Branch" />
+            <End Role="AppUser" EntitySet="AppUser" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="UniPensionDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AppRole">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="isActive" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="RoleMenuMappings" Relationship="Self.fk_RoleMenuMapping_Role" FromRole="AppRole" ToRole="RoleMenuMapping" />
+        </EntityType>
+        <EntityType Name="AppUser">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userId" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="userPass" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="CellNo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="branchId" Type="Int32" Nullable="false" />
+          <Property Name="isActive" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="firstLogin" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="userType" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="createdby" Type="DateTime" Precision="3" />
+          <Property Name="createdon" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="updatedby" Type="DateTime" Precision="3" />
+          <Property Name="updatedon" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Branch" Relationship="Self.fk_user_branch" FromRole="AppUser" ToRole="Branch" />
+        </EntityType>
+        <EntityType Name="Branch">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="branch_code" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="branch_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="region" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="division" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BBCode" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="routingNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="emailAddress" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="PhoneNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="thana" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="ISO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ZIP" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="OfficeType" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="AppUsers" Relationship="Self.fk_user_branch" FromRole="Branch" ToRole="AppUser" />
+        </EntityType>
+        <EntityType Name="MainMenu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="isActive" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="SubMenus" Relationship="Self.fk_SubMenu_mainMenu" FromRole="MainMenu" ToRole="SubMenu" />
+        </EntityType>
+        <EntityType Name="PensionPaymentRequest">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PensionerID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PensionerName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PhoneNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="PayIntervalType" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="PensionerNid" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="TransactionId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PayingInstallCount" Type="Int32" />
+          <Property Name="PayingAmount" Type="Decimal" Precision="12" Scale="2" />
+          <Property Name="CommissionAmount" Type="Decimal" Precision="12" Scale="2" />
+          <Property Name="VATAmount" Type="Decimal" Precision="12" Scale="2" />
+          <Property Name="PayMode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CreditAccount" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ApprovedOn" Type="DateTime" Precision="3" />
+          <Property Name="ApprovedBy" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="NextDueDate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IsSuccess" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="TransactionDateTime" Type="DateTime" Precision="3" />
+          <Property Name="BranchCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="PaymentRefNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="InstallPaidCount" Type="Int32" />
+          <Property Name="InstallPaidAmount" Type="Decimal" Precision="12" Scale="2" />
+          <Property Name="IsCbsDeposited" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="CBSBatchNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CBSTraceNo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="CBSDepositDate" Type="DateTime" Precision="3" />
+          <Property Name="CallBackSuccess" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="LastCallBackTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="RoleMenuMapping">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="appRoleID" Type="Int32" Nullable="false" />
+          <Property Name="subMenuID" Type="Int32" Nullable="false" />
+          <Property Name="isActive" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="AppRole" Relationship="Self.fk_RoleMenuMapping_Role" FromRole="RoleMenuMapping" ToRole="AppRole" />
+          <NavigationProperty Name="SubMenu" Relationship="Self.fk_RoleMenuMapping_SubMenu" FromRole="RoleMenuMapping" ToRole="SubMenu" />
+        </EntityType>
+        <EntityType Name="SubMenu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="mainMenuID" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="actionName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="controllerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="isActive" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="MainMenu" Relationship="Self.fk_SubMenu_mainMenu" FromRole="SubMenu" ToRole="MainMenu" />
+          <NavigationProperty Name="RoleMenuMappings" Relationship="Self.fk_RoleMenuMapping_SubMenu" FromRole="SubMenu" ToRole="RoleMenuMapping" />
+        </EntityType>
+        <Association Name="fk_RoleMenuMapping_Role">
+          <End Role="AppRole" Type="Self.AppRole" Multiplicity="1" />
+          <End Role="RoleMenuMapping" Type="Self.RoleMenuMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AppRole">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="RoleMenuMapping">
+              <PropertyRef Name="appRoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_user_branch">
+          <End Role="Branch" Type="Self.Branch" Multiplicity="1" />
+          <End Role="AppUser" Type="Self.AppUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Branch">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="AppUser">
+              <PropertyRef Name="branchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_SubMenu_mainMenu">
+          <End Role="MainMenu" Type="Self.MainMenu" Multiplicity="1" />
+          <End Role="SubMenu" Type="Self.SubMenu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MainMenu">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="SubMenu">
+              <PropertyRef Name="mainMenuID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_RoleMenuMapping_SubMenu">
+          <End Role="SubMenu" Type="Self.SubMenu" Multiplicity="1" />
+          <End Role="RoleMenuMapping" Type="Self.RoleMenuMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubMenu">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="RoleMenuMapping">
+              <PropertyRef Name="subMenuID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="UniPensionDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AppRoles" EntityType="Self.AppRole" />
+          <EntitySet Name="AppUsers" EntityType="Self.AppUser" />
+          <EntitySet Name="Branches" EntityType="Self.Branch" />
+          <EntitySet Name="MainMenus" EntityType="Self.MainMenu" />
+          <EntitySet Name="PensionPaymentRequests" EntityType="Self.PensionPaymentRequest" />
+          <EntitySet Name="RoleMenuMappings" EntityType="Self.RoleMenuMapping" />
+          <EntitySet Name="SubMenus" EntityType="Self.SubMenu" />
+          <AssociationSet Name="fk_RoleMenuMapping_Role" Association="Self.fk_RoleMenuMapping_Role">
+            <End Role="AppRole" EntitySet="AppRoles" />
+            <End Role="RoleMenuMapping" EntitySet="RoleMenuMappings" />
+          </AssociationSet>
+          <AssociationSet Name="fk_user_branch" Association="Self.fk_user_branch">
+            <End Role="Branch" EntitySet="Branches" />
+            <End Role="AppUser" EntitySet="AppUsers" />
+          </AssociationSet>
+          <AssociationSet Name="fk_SubMenu_mainMenu" Association="Self.fk_SubMenu_mainMenu">
+            <End Role="MainMenu" EntitySet="MainMenus" />
+            <End Role="SubMenu" EntitySet="SubMenus" />
+          </AssociationSet>
+          <AssociationSet Name="fk_RoleMenuMapping_SubMenu" Association="Self.fk_RoleMenuMapping_SubMenu">
+            <End Role="SubMenu" EntitySet="SubMenus" />
+            <End Role="RoleMenuMapping" EntitySet="RoleMenuMappings" />
+          </AssociationSet>
+          <EntitySet Name="CBSTransactionsLogs" EntityType="UniPensionDBModel.CBSTransactionsLog" />
+        </EntityContainer>
+        <EntityType Name="CBSTransactionsLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PaymentRefNo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TxnType" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="RequestJson" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="UniPensionDBModelStoreContainer" CdmEntityContainer="UniPensionDBEntities">
+          <EntitySetMapping Name="AppRoles">
+            <EntityTypeMapping TypeName="UniPensionDBModel.AppRole">
+              <MappingFragment StoreEntitySet="AppRole">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AppUsers">
+            <EntityTypeMapping TypeName="UniPensionDBModel.AppUser">
+              <MappingFragment StoreEntitySet="AppUser">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="userPass" ColumnName="userPass" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="CellNo" ColumnName="CellNo" />
+                <ScalarProperty Name="branchId" ColumnName="branchId" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+                <ScalarProperty Name="firstLogin" ColumnName="firstLogin" />
+                <ScalarProperty Name="userType" ColumnName="userType" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="createdby" ColumnName="createdby" />
+                <ScalarProperty Name="createdon" ColumnName="createdon" />
+                <ScalarProperty Name="updatedby" ColumnName="updatedby" />
+                <ScalarProperty Name="updatedon" ColumnName="updatedon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Branches">
+            <EntityTypeMapping TypeName="UniPensionDBModel.Branch">
+              <MappingFragment StoreEntitySet="Branch">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="branch_code" ColumnName="branch_code" />
+                <ScalarProperty Name="branch_name" ColumnName="branch_name" />
+                <ScalarProperty Name="region" ColumnName="region" />
+                <ScalarProperty Name="division" ColumnName="division" />
+                <ScalarProperty Name="BBCode" ColumnName="BBCode" />
+                <ScalarProperty Name="routingNo" ColumnName="routingNo" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="emailAddress" ColumnName="emailAddress" />
+                <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+                <ScalarProperty Name="thana" ColumnName="thana" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ISO" ColumnName="ISO" />
+                <ScalarProperty Name="ZIP" ColumnName="ZIP" />
+                <ScalarProperty Name="OfficeType" ColumnName="OfficeType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MainMenus">
+            <EntityTypeMapping TypeName="UniPensionDBModel.MainMenu">
+              <MappingFragment StoreEntitySet="MainMenu">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PensionPaymentRequests">
+            <EntityTypeMapping TypeName="UniPensionDBModel.PensionPaymentRequest">
+              <MappingFragment StoreEntitySet="PensionPaymentRequest">
+                <ScalarProperty Name="LastCallBackTime" ColumnName="LastCallBackTime" />
+                <ScalarProperty Name="CallBackSuccess" ColumnName="CallBackSuccess" />
+                <ScalarProperty Name="CBSDepositDate" ColumnName="CBSDepositDate" />
+                <ScalarProperty Name="CBSTraceNo" ColumnName="CBSTraceNo" />
+                <ScalarProperty Name="CBSBatchNo" ColumnName="CBSBatchNo" />
+                <ScalarProperty Name="IsCbsDeposited" ColumnName="IsCbsDeposited" />
+                <ScalarProperty Name="InstallPaidAmount" ColumnName="InstallPaidAmount" />
+                <ScalarProperty Name="InstallPaidCount" ColumnName="InstallPaidCount" />
+                <ScalarProperty Name="PaymentRefNo" ColumnName="PaymentRefNo" />
+                <ScalarProperty Name="BranchCode" ColumnName="BranchCode" />
+                <ScalarProperty Name="TransactionDateTime" ColumnName="TransactionDateTime" />
+                <ScalarProperty Name="IsSuccess" ColumnName="IsSuccess" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PensionerID" ColumnName="PensionerID" />
+                <ScalarProperty Name="PensionerName" ColumnName="PensionerName" />
+                <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="PayIntervalType" ColumnName="PayIntervalType" />
+                <ScalarProperty Name="PensionerNid" ColumnName="PensionerNid" />
+                <ScalarProperty Name="TransactionId" ColumnName="TransactionId" />
+                <ScalarProperty Name="PayingInstallCount" ColumnName="PayingInstallCount" />
+                <ScalarProperty Name="PayingAmount" ColumnName="PayingAmount" />
+                <ScalarProperty Name="CommissionAmount" ColumnName="CommissionAmount" />
+                <ScalarProperty Name="VATAmount" ColumnName="VATAmount" />
+                <ScalarProperty Name="PayMode" ColumnName="PayMode" />
+                <ScalarProperty Name="CreditAccount" ColumnName="CreditAccount" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ApprovedOn" ColumnName="ApprovedOn" />
+                <ScalarProperty Name="ApprovedBy" ColumnName="ApprovedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="NextDueDate" ColumnName="NextDueDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RoleMenuMappings">
+            <EntityTypeMapping TypeName="UniPensionDBModel.RoleMenuMapping">
+              <MappingFragment StoreEntitySet="RoleMenuMapping">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="appRoleID" ColumnName="appRoleID" />
+                <ScalarProperty Name="subMenuID" ColumnName="subMenuID" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SubMenus">
+            <EntityTypeMapping TypeName="UniPensionDBModel.SubMenu">
+              <MappingFragment StoreEntitySet="SubMenu">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="mainMenuID" ColumnName="mainMenuID" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="actionName" ColumnName="actionName" />
+                <ScalarProperty Name="controllerName" ColumnName="controllerName" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CBSTransactionsLogs">
+            <EntityTypeMapping TypeName="UniPensionDBModel.CBSTransactionsLog">
+              <MappingFragment StoreEntitySet="CBSTransactionsLog">
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="RequestJson" ColumnName="RequestJson" />
+                <ScalarProperty Name="TxnType" ColumnName="TxnType" />
+                <ScalarProperty Name="PaymentRefNo" ColumnName="PaymentRefNo" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

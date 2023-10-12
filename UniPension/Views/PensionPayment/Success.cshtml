@@ -1,0 +1,61 @@
+﻿@model UniPension.Models.PaymentResponse
+
+@{
+    ViewBag.Title = "Success";
+}
+
+<div>
+    <h4>Payment Success Response</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.code)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.code)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.message)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.message)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.data.PID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.data.PID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.data.Install_Paid_Amount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.data.Install_Paid_Amount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.data.Install_Paid_Count)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.data.Install_Paid_Count)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.data.Next_Due_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.data.Next_Due_Date)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index", "PensionPayment")
+</p>

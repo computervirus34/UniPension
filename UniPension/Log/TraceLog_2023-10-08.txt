@@ -1,0 +1,10 @@
+2023-10-08 14:36:11,731 [6] DEBUG UniPension.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2023-10-08 14:36:24,883 [6] DEBUG UniPension.Controllers.LoginController - Login successful! for user ID:admin from IP:127.0.0.1
+2023-10-08 14:42:14,413 [7] DEBUG UniPension.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2023-10-08 14:42:14,735 [7] DEBUG UniPension.Controllers.LoginController - Login successful! for user ID:admin from IP:127.0.0.1
+2023-10-08 14:45:03,141 [7] DEBUG UniPension.Controllers.PensionPaymnetController - {"nid_pid":"19801910950170058"}
+2023-10-08 14:45:17,873 [7] DEBUG UniPension.Controllers.PensionPaymnetController - {"code":"200","message":"Successful","data":{"NID":"8699278704","PID":"2023-000000018","PhoneNo":"01716909074","Email":null,"Pension_holder_Name":"Md Mostak Ahammed","Install_Amount":5000.0,"Pay_Interval_Type":"Yearly","Payable_Per_Installment":60000.0,"Scheme_name":"Surokkha","Total_Due_Install_Count":0,"Total_Due_Install_Amount":0.0,"Total_Fine_Amount":0.0,"Grand_Total_Due_Amount":0.0,"Due_Installments":[],"CreditAccDetails":{"AccNo":"0002601020864","Payment_Ref_No":"OTC231008144506902269"}}}
+2023-10-08 14:52:56,487 [8] DEBUG UniPension.Controllers.LoginController - Login Attempt for user ID:admin from IP:127.0.0.1
+2023-10-08 14:52:56,726 [8] DEBUG UniPension.Controllers.LoginController - Login successful! for user ID:admin from IP:127.0.0.1
+2023-10-08 14:53:25,773 [7] DEBUG UniPension.Controllers.PensionPaymnetController - {"nid_pid":"19801910950170058"}
+2023-10-08 14:53:26,921 [7] DEBUG UniPension.Controllers.PensionPaymnetController - {"code":"200","message":"Successful","data":{"NID":"8699278704","PID":"2023-000000018","PhoneNo":"01716909074","Email":null,"Pension_holder_Name":"Md Mostak Ahammed","Install_Amount":5000.0,"Pay_Interval_Type":"Yearly","Payable_Per_Installment":60000.0,"Scheme_name":"Surokkha","Total_Due_Install_Count":0,"Total_Due_Install_Amount":0.0,"Total_Fine_Amount":0.0,"Grand_Total_Due_Amount":0.0,"Due_Installments":[],"CreditAccDetails":{"AccNo":"0002601020864","Payment_Ref_No":"OTC231008144506902269"}}}
